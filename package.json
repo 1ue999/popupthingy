@@ -2,7 +2,7 @@
   "name": "standup-extension",
   "displayName": "Standup",
   "description": "popup an alert that say \"take a break, stand up\" every hour",
-  "version": "1.0.0-beta",
+  "version": "0.1.0",
   "author": "Ilingu",
   "license": "MIT",
   "repository": {
@@ -15,7 +15,7 @@
     "VSCodium extension",
     "TypeScript"
   ],
-  "publisher": "standup-extension",
+  "publisher": "ilingu",
   "engines": {
     "vscode": "^1.69.0"
   },

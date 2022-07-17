@@ -10,8 +10,9 @@
 
 This extensions is available in both:
 
-- [VSCode (marketplace)]()
-- [VSCodium (open-vsx)]()
+- [VSCode (marketplace)](https://marketplace.visualstudio.com/items?itemName=Ilingu.standup-extension)
+- [VSCodium (open-vsx)](https://open-vsx.org/extension/standup-extension/standup-extension)
+- Direct Download via Github Releases
 
 ## Made With:
 
