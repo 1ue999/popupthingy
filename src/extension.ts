@@ -73,7 +73,10 @@ function updateElapsedTimeStatusBar() {
   {
     const headerText =
       elapsedHours >= 5 ? "$(extensions-warning-message)" : "⌛";
-    const hoursText = elapsedHours >= 1 ? ` ${elapsedHours} hours` : "";
+    const hoursText =
+      elapsedHours >= 1
+        ? ` ${elapsedHours} hour${elapsedHours > 1 ? "s" : ""}`
+        : "";
     const minutesText = ` ${elapsedMinutes} min`;
     const footerText = " Elapsed";
 
