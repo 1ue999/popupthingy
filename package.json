@@ -1,0 +1,80 @@
+{
+  "name": "standup-extension",
+  "displayName": "Standup",
+  "description": "popup an alert that say \"take a break, stand up\" every hour",
+  "version": "1.0.0-beta",
+  "author": "Ilingu",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ilingu/standup-vscode-extension.git"
+  },
+  "keywords": [
+    "Programmers wellbeing",
+    "VSCode extension",
+    "VSCodium extension",
+    "TypeScript"
+  ],
+  "publisher": "standup-extension",
+  "engines": {
+    "vscode": "^1.69.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "standup-extension.refresh-elapsedTime",
+        "title": "Refresh the time elapsed since start"
+      }
+    ],
+    "configuration": {
+      "title": "standup",
+      "properties": {
+        "standup.refreshTime": {
+          "type": "number",
+          "description": "Refresh time gap to update elapsedTime (in ms; default=60000)",
+          "default": 60000,
+          "maximum": 3600000,
+          "minimum": 1000
+        },
+        "standup.enableHourlyNotification": {
+          "type": "boolean",
+          "description": "If set to true, a notification will be sent each hours elasped on vscode",
+          "default": true
+        },
+        "standup.enableElapsedTime": {
+          "type": "boolean",
+          "description": "Whether you want to show or not the status bar showing the elapsed time passed since vscode was open",
+          "default": true
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.69.0",
+    "@types/glob": "^7.2.0",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "16.x",
+    "@typescript-eslint/eslint-plugin": "^5.30.0",
+    "@typescript-eslint/parser": "^5.30.0",
+    "eslint": "^8.18.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.0.0",
+    "typescript": "^4.7.4",
+    "@vscode/test-electron": "^2.1.5"
+  }
+}
