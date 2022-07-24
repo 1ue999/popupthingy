@@ -58,7 +58,7 @@ function startBgProcess() {
       return clearInterval(bgProcess);
     }
     // Featues
-    const ratioInterval = 3600000 / refreshTime;
+    const ratioInterval = Math.round(3600000 / refreshTime);
     if (hourlyNotif && ticksCount % ratioInterval === 0) popUpNotifyStandUp();
     if (elapsedTimeEnabled) updateElapsedTimeStatusBar();
   }, refreshTime);
