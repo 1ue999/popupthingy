@@ -120,15 +120,19 @@ async function handleLastSubmit() {
     (Date.now() - sessionEndDate) / 1000 / 60 / 60;
   if (elapsedTimeSincePrevSession >= 1.5) return resetPrevSession();
 
-  const userChoice = await vscode.window.showWarningMessage(
-    `Would you like to resume your previous session? (${new Date(
-      sessionEndDate
-    ).toLocaleTimeString()})`,
-    "✅ Yes",
-    "❌ No"
-  );
+  if (elapsedTimeSincePrevSession * 60 > 2) {
+    const userChoice = await vscode.window.showWarningMessage(
+      `Would you like to resume your previous session? (${new Date(
+        sessionEndDate
+      ).toLocaleTimeString()})`,
+      "✅ Yes",
+      "❌ No"
+    );
+    if (userChoice === "✅ Yes") startTime = sessionStartTime;
+  } else {
+    startTime = sessionStartTime; // if the time between the last session and this one <= 2min, restore session without alert
+  }
 
-  if (userChoice === "✅ Yes") startTime = sessionStartTime;
   resetPrevSession();
 }
 
