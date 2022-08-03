@@ -2,7 +2,7 @@
   "name": "standup-extension",
   "displayName": "Standup",
   "description": "popup an alert that say \"take a break, stand up\" every hour",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "author": "Ilingu",
   "license": "MIT",
   "repository": {

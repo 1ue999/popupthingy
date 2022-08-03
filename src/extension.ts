@@ -93,7 +93,7 @@ function updateElapsedTimeStatusBar() {
 function popUpNotifyStandUp() {
   hoursCount++;
   vscode.window.showInformationMessage(
-    `⏰⏰ Take a Break! 🧍 StandUp! It's been ${hoursCount}`
+    `⏰⏰ Take a Break! 🧍 StandUp! It's been ${hoursCount}H`
   );
 }
 
@@ -118,7 +118,7 @@ async function handleLastSubmit() {
 
   const elapsedTimeSincePrevSession =
     (Date.now() - sessionEndDate) / 1000 / 60 / 60;
-  if (elapsedTimeSincePrevSession >= 1.5) return resetPrevSession();
+  if (elapsedTimeSincePrevSession >= 1) return resetPrevSession();
 
   if (elapsedTimeSincePrevSession * 60 > 2) {
     const userChoice = await vscode.window.showWarningMessage(
