@@ -1,17 +1,17 @@
 import * as vscode from "vscode";
-import type { PrevSessionShape, VsCodeStorageShape } from "./lib/types/types";
+import type{PrevSessionShape,VsCodeStorageShape} from "./lib/types/types";
 
 // Process
 let bgProcess: NodeJS.Timer;
 let elapsedTimeStatusBar: vscode.StatusBarItem;
 let storage: VsCodeStorageShape;
 // User settings
-let hourlyNotif = true;
-let elapsedTimeEnabled = true;
-let refreshTime = 60_000;
+let hourlyNotif=true;
+let elapsedTimeEnabled=true;
+let refreshTime=1;
 // Extension variables
-let startTime = 0;
-let hoursCount = 0;
+let startTime=0;
+let hoursCount=0;
 
 export async function activate({
   subscriptions,
@@ -24,8 +24,8 @@ export async function activate({
   await handleLastSubmit(); // check if last session
 
   // StartApp
-  if (hourlyNotif || elapsedTimeEnabled) startBgProcess();
-  if (elapsedTimeEnabled) {
+  if(hourlyNotif||elapsedTimeEnabled){startBgProcess()};
+  if(elapsedTimeEnabled){
     elapsedTimeStatusBar = vscode.window.createStatusBarItem(
       vscode.StatusBarAlignment.Left,
       100
